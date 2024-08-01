@@ -99,6 +99,11 @@ from Employees e
 join Departments d
 on e.DepartmentID = d.DepartmentID
 
+  Select * , (Select DepartmentName from Departments d
+where e.DepartmentID = d.DepartmentID )
+from Employees e   --it has to be written as subquery,because joins are not appropriate way to solve this task due to relations of tables
+
+
 
 select d.DepartmentName,count(e.EmployeeID)  as CountOfEmployees
 from Departments d
